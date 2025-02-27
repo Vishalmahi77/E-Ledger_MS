@@ -1,0 +1,58 @@
+{% extends 'store/base.html' %}
+{% block title %}Profile{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-header text-white" style="background-color: rgb(124, 110, 140);">
+          <h1 class="h5 mb-0">Edit Your Profile</h1>
+        </div>
+        <div class="card-body" style="background-color: rgb(189, 204, 204);">
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="id_username" class="form-label" >Username:</label>
+              {{ u_form.username }}   
+              <div class="text-danger">{{ u_form.username.errors }}</div>
+            </div>
+            <div class="mb-3">
+              <label for="id_email" class="form-label">Email</label>
+              {{ u_form.email }}
+              <div class="text-danger">{{ u_form.email.errors }}</div>
+            </div>
+            <div class="mb-3">
+              <label for="id_secondary_email" class="form-label">Secondary Email</label>
+              {{ p_form.email }}
+              <div class="text-danger">{{ p_form.email.errors }}</div>
+            </div>
+            <div class="mb-3">
+              <label for="id_first_name" class="form-label">First Name</label>
+              {{ p_form.first_name }}
+              <div class="text-danger">{{ p_form.first_name.errors }}</div>
+            </div>
+            <div class="mb-3">
+              <label for="id_last_name" class="form-label">Last Name</label>
+              {{ p_form.last_name }}
+              <div class="text-danger">{{ p_form.last_name.errors }}</div>
+            </div>
+            <div class="mb-3">
+              <label for="id_telephone" class="form-label">Mobile Number</label>
+              {{ p_form.telephone }}
+              <div class="text-danger">{{ p_form.telephone.errors }}</div>
+            </div>
+            <div class="mb-3">
+              <label for="id_profile_picture" class="form-label">Profile Picture</label>
+              {{ p_form.profile_picture }}
+            </div>
+            <button type="submit" class="btn btn-success" style="background-color: rgb(124, 110, 140);">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
