@@ -108,7 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 CORS_ALLOWED_ORIGINS = [
     "https://e-ledger-ms.onrender.com",
 ]
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://e-ledger-ms.onrender.com",
+]
 CORS_ALLOW_CREDENTIALS = True  # If using cookies or authentication
 
 # Internationalization
